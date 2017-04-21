@@ -2,11 +2,11 @@ package com.example.jdbc.controller;
 
 import com.example.jdbc.entity.Customer;
 import com.example.jdbc.service.ICustomerService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -21,7 +21,7 @@ import java.util.List;
 @RequestMapping("/customer")
 public class CustomerController {
 
-    @Autowired
+    @Resource
     private ICustomerService customerService;
 
     @RequestMapping("customerList")
