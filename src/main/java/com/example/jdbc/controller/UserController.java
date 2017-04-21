@@ -2,10 +2,9 @@ package com.example.jdbc.controller;
 
 import com.example.jdbc.entity.User;
 import com.example.jdbc.service.IUserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.Resource;
 
 /**
  * Copyright (C) 1990 2013 南京擎天科技集团
@@ -19,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/user")
 public class UserController {
 
-    @Autowired
+    @Resource
     private IUserService userService;
 
     @RequestMapping("userList")
@@ -30,5 +29,10 @@ public class UserController {
     @RequestMapping("userInfo/{id}")
     public User getUserById(@PathVariable("id") String id) {
         return userService.getUserById(id);
+    }
+
+    @PostMapping("adduser")
+    public void addUser(@RequestBody User user) {
+        System.out.println(user.toString());
     }
 }
