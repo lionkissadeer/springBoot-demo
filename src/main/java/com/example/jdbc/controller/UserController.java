@@ -21,12 +21,12 @@ public class UserController {
     @Resource
     private IUserService userService;
 
-    @RequestMapping("userList")
+    @GetMapping("userList")
     public Object getAllUser() {
         return userService.getAllUser();
     }
 
-    @RequestMapping("userInfo/{id}")
+    @GetMapping("userInfo/{id}")
     public User getUserById(@PathVariable("id") String id) {
         return userService.getUserById(id);
     }
